@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std; 
+
+int main()
+{
+	
+	int arr1[2][2];
+	int arr2[2][2];
+	cout<<"Enter the elements in the matrix1: ";
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			cin>>arr1[i][j];
+		}
+	}
+	
+	cout<<"Enter the elements in the matrix2: ";
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			cin>>arr2[i][j];
+		}
+	}
+	
+	int arr[2][2];
+	int p1=(arr1[0][0]+arr1[1][1])*(arr2[0][0]+arr2[1][1]);
+	int p2=(arr1[1][0]+arr1[1][1])*(arr2[0][0]);
+	int p3=(arr1[0][0])*(arr2[0][1]-arr2[1][1]);
+	int p4=(arr1[1][1])*(arr2[1][0]-arr2[0][0]);
+	int p5=(arr1[0][0]+arr1[0][1])*(arr2[1][1]);
+	int p6=(arr1[1][0]-arr1[0][0])*(arr2[0][0]+arr2[0][1]);
+	int p7=(arr1[0][1]-arr1[1][1])*(arr2[1][0]+arr2[1][1]);
+	
+	arr[0][0]=p1+p4-p5+p7;
+	arr[0][1]=p5+p3;
+	arr[1][0]=p2+p4;
+	arr[1][1]=p1+p3-p2+p6;
+	
+	
+	cout<<"The final array after multiplication is: ";
+	for(int i=0;i<2;i++)
+	{   cout<<"\n";
+		for(int j=0;j<2;j++)
+		{
+			cout<<arr[i][j]<<" ";
+		}
+	}
+
+}
